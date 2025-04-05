@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 mongoose.set("strictQuery", true);
 
-mongoose.connect("mongodb+srv://saranshkeshari9:Sara2711@cluster0.d0byvbu.mongodb.net/humanity?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
