@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", true);
 
-mongoose.connect("mongodb://localhost:27017/mongo", {
+mongoose.connect("mongodb+srv://saranshkeshari9:Sara2711@cluster0.d0byvbu.mongodb.net/humanity?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
