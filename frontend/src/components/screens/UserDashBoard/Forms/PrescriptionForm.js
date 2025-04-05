@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function PrescriptionForm(props) {
   const { currentUser } = useContext(UserContext);
@@ -19,7 +20,7 @@ function PrescriptionForm(props) {
   // },[medicines])
 
   const getMedicines = async () => {
-    const response = await axios.get("http://localhost:3001/medicines");
+    const response = await axios.get("http://localhost:8080/api/medicines");
     console.log("medicines", medicines);
     setMedicines(response.data);
   };
@@ -28,16 +29,19 @@ function PrescriptionForm(props) {
 
   const addMedicineItem = () => {
     // getMedicines();
+    if (medicines[0]){
     setMedicineItems([
       ...medicineItems,
       {
-        id: medicineItems.length + 1,
         // medicine: medicines[0].name,
         qty: "",
         dosage: "",
-        medicineId: medicines[0]._id,
+        medicineId: medicines[0]?._id,
       },
     ]);
+  }else{
+    toast.error("no medicines are available now try creating one")
+  }
   };
   const deleteMedicineItem = (id) => {
     setMedicineItems(medicineItems.filter((item) => item.id !== id));
@@ -68,7 +72,7 @@ function PrescriptionForm(props) {
             className="form-control"
             onChange={(e) => handleMedicineChange(item.id, e)}
           >
-            {medicines.map((medicine) => {
+            {medicines && medicines.map((medicine) => {
               if (item._id == medicine._id) {
                 return (
                   <option key={medicine._id} value={medicine._id} selected>

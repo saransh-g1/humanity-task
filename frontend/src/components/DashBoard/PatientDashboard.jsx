@@ -175,114 +175,116 @@ export default function PatientDashboard() {
             <div className="topicHeader">
               <h3 className="text-center">Upcoming Appointment</h3>
             </div>
-            <div className="topicContent">
-              {firstAppointmentInFuture.appointmentDate && (
-                <div className="contentCard">
-                  <div className="apDate">
-                    <p className="date">
-                      {getAppDate(firstAppointmentInFuture.appointmentDate)}
-                    </p>
-                    <p>
-                      {getAppMonth(firstAppointmentInFuture.appointmentDate)}
-                    </p>
-                    <p>
-                      {getAppYear(firstAppointmentInFuture.appointmentDate)}
-                    </p>
-                  </div>
-                  <div className="apDetails">
-                    <p className="py-2">
-                      <span className="fw-bold">Doctor Name </span>:{" "}
-                      {firstAppointmentInFuture?.doctorId?.userId.firstName}{" "}
-                      {firstAppointmentInFuture?.doctorId?.userId.lastName}
-                    </p>
-                    <p className="py-2">
-                      <span className="fw-bold">Department </span>:{" "}
-                      {firstAppointmentInFuture?.doctorId?.department}
-                    </p>
-                    <p className="py-2">
-                      <span className="fw-bold">Time</span>:{" "}
-                      {firstAppointmentInFuture?.appointmentTime}
-                    </p>
-                  </div>
-                </div>
-              )}
-              {!firstAppointmentInFuture.appointmentDate && (
-                <div className="contentCard-empty">
-                  <p className="fw-bolder">You have no upcoming Appointments</p>
-                  <p className="mt-5">
-                    Would you like to book a new Appointment?
-                  </p>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    className="my-3"
-                    startIcon={<BookOnlineIcon />}
-                    component={NavLink}
-                    to="/appointments"
-                  >
-                    Book Now
-                  </Button>
-                </div>
-              )}
-            </div>
-          </div>
+            
+            <div className="topicContent" style={{ padding: '15px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+  {firstAppointmentInFuture.appointmentDate && (
+    <div className="contentCard" style={{ display: 'flex', padding: '20px', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
+      <div className="apDate" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minWidth: '80px', marginRight: '20px', borderRight: '1px solid #eaeaea', paddingRight: '20px' }}>
+        <p className="date" style={{ fontSize: '24px', fontWeight: 'bold', margin: '0' }}>
+          {getAppDate(firstAppointmentInFuture.appointmentDate)}
+        </p>
+        <p style={{ margin: '5px 0', textAlign: 'center' }}>
+          {getAppMonth(firstAppointmentInFuture.appointmentDate)}
+        </p>
+        <p style={{ margin: '0', textAlign: 'center' }}>
+          {getAppYear(firstAppointmentInFuture.appointmentDate)}
+        </p>
+      </div>
+      <div className="apDetails" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: '1' }}>
+        <p className="py-2" style={{ margin: '5px 0' }}>
+          <span className="fw-bold" style={{ fontWeight: 'bold', minWidth: '120px', display: 'inline-block' }}>Doctor Name </span>:{" "}
+          {firstAppointmentInFuture?.doctorId?.userId.firstName}{" "}
+          {firstAppointmentInFuture?.doctorId?.userId.lastName}
+        </p>
+        <p className="py-2" style={{ margin: '5px 0' }}>
+          <span className="fw-bold" style={{ fontWeight: 'bold', minWidth: '120px', display: 'inline-block' }}>Department </span>:{" "}
+          {firstAppointmentInFuture?.doctorId?.department}
+        </p>
+        <p className="py-2" style={{ margin: '5px 0' }}>
+          <span className="fw-bold" style={{ fontWeight: 'bold', minWidth: '120px', display: 'inline-block' }}>Time</span>:{" "}
+          {firstAppointmentInFuture?.appointmentTime}
+        </p>
+      </div>
+    </div>
+  )}
+  {!firstAppointmentInFuture.appointmentDate && (
+    <div className="contentCard-empty" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '30px', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)', textAlign: 'center' }}>
+      <p className="fw-bolder" style={{ fontWeight: 'bold', fontSize: '18px', margin: '0 0 15px 0' }}>You have no upcoming Appointments</p>
+      <p className="mt-5" style={{ marginTop: '20px' }}>
+        Would you like to book a new Appointment?
+      </p>
+      <Button
+        variant="contained"
+        color="success"
+        className="my-3"
+        startIcon={<BookOnlineIcon />}
+        component={NavLink}
+        to="/appointments"
+      >
+        Book Now
+      </Button>
+    </div>
+  )}
+</div>
+</div>
+</div>
+<div className="col-md-6 col-sm-12">
+<div className="customPatientApt mx-auto">
+  <div className="topicHeader">
+    <h3 className="text-center">Patient History</h3>
+  </div>
+  <div className="topicContent" style={{ padding: '15px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+    {prescriptions[0]?.appointmentId && (
+      <div className="contentCard" style={{ display: 'flex', padding: '20px', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
+        <div className="apDate" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minWidth: '80px', marginRight: '20px', borderRight: '1px solid #eaeaea', paddingRight: '20px' }}>
+          <p className="date" style={{ fontSize: '24px', fontWeight: 'bold', margin: '0' }}>
+            {getAppDate(
+              prescriptions[0]?.appointmentId?.appointmentDate
+            )}
+          </p>
+          <p style={{ margin: '5px 0', textAlign: 'center' }}>
+            {getAppMonth(
+              prescriptions[0]?.appointmentId?.appointmentDate
+            )}
+          </p>
+          <p style={{ margin: '0', textAlign: 'center' }}>
+            {getAppYear(
+              prescriptions[0]?.appointmentId?.appointmentDate
+            )}
+          </p>
         </div>
-        <div className="col-md-6 col-sm-12">
-          <div className="customPatientApt mx-auto">
-            <div className="topicHeader">
-              <h3 className="text-center">Patient History</h3>
-            </div>
-            <div className="topicContent">
-              {prescriptions[0]?.appointmentId && (
-                <div className="contentCard">
-                  <div className="apDate">
-                    <p className="date">
-                      {getAppDate(
-                        prescriptions[0]?.appointmentId?.appointmentDate
-                      )}
-                    </p>
-                    <p>
-                      {getAppMonth(
-                        prescriptions[0]?.appointmentId?.appointmentDate
-                      )}
-                    </p>
-                    <p>
-                      {getAppYear(
-                        prescriptions[0]?.appointmentId?.appointmentDate
-                      )}
-                    </p>
-                  </div>
-                  <div className="apDetails">
-                    <p className="py-2">
-                      <span className="fw-bold">Doctor Name </span>:{" "}
-                      {
-                        prescriptions[0]?.appointmentId?.doctorId?.userId
-                          ?.firstName
-                      }{" "}
-                      {
-                        prescriptions[0]?.appointmentId?.doctorId?.userId
-                          ?.lastName
-                      }
-                    </p>
-                    <p className="py-2">
-                      <span className="fw-bold">Department </span>:{" "}
-                      {prescriptions[0]?.appointmentId?.doctorId?.department}
-                    </p>
-                    <p className="py-2">
-                      <span className="fw-bold"> Doctor's Remarks </span> :{" "}
-                      {prescriptions[0]?.remarks}
-                    </p>
-                  </div>
-                </div>
-              )}
-              {!prescriptions[0]?.appointmentId && (
-                <div className="contentCard-empty">
-                  <p className="fw-bolder">
-                    You have no medical history in this hospital
-                  </p>
-                </div>
-              )}
-            </div>
+        <div className="apDetails" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: '1' }}>
+          <p className="py-2" style={{ margin: '5px 0' }}>
+            <span className="fw-bold" style={{ fontWeight: 'bold', minWidth: '120px', display: 'inline-block' }}>Doctor Name </span>:{" "}
+            {
+              prescriptions[0]?.appointmentId?.doctorId?.userId
+                ?.firstName
+            }{" "}
+            {
+              prescriptions[0]?.appointmentId?.doctorId?.userId
+                ?.lastName
+            }
+          </p>
+          <p className="py-2" style={{ margin: '5px 0' }}>
+            <span className="fw-bold" style={{ fontWeight: 'bold', minWidth: '120px', display: 'inline-block' }}>Department </span>:{" "}
+            {prescriptions[0]?.appointmentId?.doctorId?.department}
+          </p>
+          <p className="py-2" style={{ margin: '5px 0' }}>
+            <span className="fw-bold" style={{ fontWeight: 'bold', minWidth: '120px', display: 'inline-block' }}> Doctor's Remarks </span> :{" "}
+            {prescriptions[0]?.remarks}
+          </p>
+        </div>
+      </div>
+    )}
+    {!prescriptions[0]?.appointmentId && (
+      <div className="contentCard-empty" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '30px', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)', textAlign: 'center' }}>
+        <p className="fw-bolder" style={{ fontWeight: 'bold', fontSize: '18px', margin: '0' }}>
+          You have no medical history in this hospital
+        </p>
+      </div>
+    )}
+  </div>
+
           </div>
         </div>
       </div>

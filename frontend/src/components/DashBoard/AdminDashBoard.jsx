@@ -36,7 +36,7 @@ export default function AdminDashboard() {
 
   const getBookedSlots = async () => {
     let response = await axios.post(
-      `http://localhost:3001/appointments`,
+      `http://localhost:8080/appointments`,
       {
         isTimeSlotAvailable: false,
         appDate: moment(new Date()).format("YYYY-MM-DD"),
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
         <div className={["", styles.statCard].join(" ")}>
           <div className={styles.dashWidget}>
             <span className={styles.dashWidgetBg2}>
-              <i className="fa fa-user-o" aria-hidden="true"></i>
+              <i className="fa fa-user" aria-hidden="true"></i>
             </span>
             <div className={[" ", styles.dashWidgetInfo].join(" ")}>
               <h3 className={styles.dashWidgetInfoH3}>{patientCount}</h3>
@@ -222,16 +222,16 @@ export default function AdminDashboard() {
                   doctors.map((doc) => {
                     return (
                       <li>
-                        <div class="contact-cont">
-                          <div class="float-left user-img m-r-10"></div>
-                          <div class="contact-info">
-                            <span class="contact-name text-ellipsis">
-                              {doc.userId?.firstName} {doc.userId?.lastName}
-                            </span>
-                            <span class="contact-date">{doc.department} </span>
-                          </div>
+                      <div class="contact-cont">
+                        <div class="float-left user-img m-r-10"></div>
+                        <div class="contact-info">
+                          <span class="contact-name text-ellipsis" style={{marginRight:"12px"}}>
+                            {doc.userId?.firstName} {doc.userId?.lastName}
+                          </span>
+                          <span class="contact-date">{doc.department} </span>
                         </div>
-                      </li>
+                      </div>
+                    </li>
                     );
                   })}
               </ul>

@@ -59,7 +59,7 @@ const getPrescriptions = async (req, res) => {
 const savePrescription = async (req, res) => {
   try {
     const prescription = req.body;
-
+    console.log(prescription)
     const prescriptionDetails = await Prescription.create(prescription);
     await Appointment.findByIdAndUpdate(prescription.appointmentId, {
       completed: 1,

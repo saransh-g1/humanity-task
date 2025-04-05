@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import { UserContext } from "../../../Context/UserContext";
+import { toast } from "react-toastify";
 
 function PatientProfile() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ function PatientProfile() {
   const updatePatient = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:8080/api/patients/${patientId}`, {
+      await axios.put(`http://localhost:8080/api/patients/${patientId}`, {
         firstName,
         lastName,
         username,
@@ -58,6 +59,7 @@ function PatientProfile() {
         dob,
         userId,
       });
+      toast.success("Profile Updated Successfully");
       navigate("/profile");
     } catch (error) {
       console.log(error.response.data.errors);

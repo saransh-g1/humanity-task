@@ -152,7 +152,7 @@ export default function DoctorDashboard() {
         <div className={["", styles.statCard].join(" ")}>
           <div className={styles.dashWidget}>
             <span className={styles.dashWidgetBg2}>
-              <i className="fa fa-user-o" aria-hidden="true"></i>
+              <i className="fa fa-user" aria-hidden="true"></i>
             </span>
             <div className={[" ", styles.dashWidgetInfo].join(" ")}>
               <h3 className={styles.dashWidgetInfoH3}>
