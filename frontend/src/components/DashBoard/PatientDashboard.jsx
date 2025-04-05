@@ -59,7 +59,7 @@ export default function PatientDashboard() {
 
   const getBookedSlots = async () => {
     let response = await axios.post(
-      `http://localhost:8080/api/appointments`,
+      `https://hmc-backend-six.vercel.app/api/appointments`,
       {
         isTimeSlotAvailable: false,
       },
@@ -111,7 +111,7 @@ export default function PatientDashboard() {
   };
   const getPrescription = async () => {
     let response = await axios.post(
-      `http://localhost:8080/api/prescriptions`,
+      `https://hmc-backend-six.vercel.app/api/prescriptions`,
       {},
       {
         headers: {

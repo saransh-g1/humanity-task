@@ -36,7 +36,7 @@ function Login() {
 
     // Fetch Login Data
     try {
-      const response = await axios.post("http://localhost:8080/api/login", {
+      const response = await axios.post("https://hmc-backend-six.vercel.app/api/login", {
         email,
         password,
       });

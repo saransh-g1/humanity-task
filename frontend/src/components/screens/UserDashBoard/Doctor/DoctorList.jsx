@@ -17,7 +17,7 @@ function DoctorList() {
   }, []);
 
   const getdoctors = async () => {
-    const response = await axios.get("http://localhost:8080/api/doctors", {
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/doctors", {
       params: {
         name: name,
       },
@@ -27,7 +27,7 @@ function DoctorList() {
 
   const deleteDoctor = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/doctors/${id}`);
+      await axios.delete(`https://hmc-backend-six.vercel.app/api/doctors/${id}`);
       toast.success("Doctor Deleted Successfully");
 
       getdoctors();

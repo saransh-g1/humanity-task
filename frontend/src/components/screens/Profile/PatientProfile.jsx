@@ -29,7 +29,7 @@ function PatientProfile() {
   const getPatientById = async () => {
     let patientUserId = currentUser.userId;
     const response = await axios.get(
-      `http://localhost:8080/api/profile/patient/${patientUserId}`
+      `https://hmc-backend-six.vercel.app/api/profile/patient/${patientUserId}`
     );
     setPatientId(response.data._id);
     setFirstName(response.data.userId.firstName);
@@ -47,7 +47,7 @@ function PatientProfile() {
   const updatePatient = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/api/patients/${patientId}`, {
+      await axios.put(`https://hmc-backend-six.vercel.app/api/patients/${patientId}`, {
         firstName,
         lastName,
         username,

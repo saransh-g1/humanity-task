@@ -17,7 +17,7 @@ function PatientList() {
   }, []);
 
   const getPatients = async () => {
-    const response = await axios.get("http://localhost:8080/api/patients", {
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/patients", {
       params: {
         name: name,
       },
@@ -28,7 +28,7 @@ function PatientList() {
   const deletePatient = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/api/patients/${id}`
+        `https://hmc-backend-six.vercel.app/api/patients/${id}`
       );
 
       if (response.status === 200) {

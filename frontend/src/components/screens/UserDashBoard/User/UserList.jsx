@@ -18,7 +18,7 @@ function UserList() {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:8080/api/users", {
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/users", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -32,7 +32,7 @@ function UserList() {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/users/${id}`, {
+      await axios.delete(`https://hmc-backend-six.vercel.app/api/users/${id}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },

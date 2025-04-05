@@ -25,7 +25,7 @@ function AdminProfile() {
   const getAdminById = async () => {
     let adminUserId = currentUser.userId;
     const response = await axios.get(
-      `http://localhost:8080/api/profile/admin/${adminUserId}`
+      `https://hmc-backend-six.vercel.app/api/profile/admin/${adminUserId}`
     );
 
     setUserId(response.data._id);
@@ -39,7 +39,7 @@ function AdminProfile() {
   const updateAdmin = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/api/profile/admin/${userId}`, {
+      await axios.put(`https://hmc-backend-six.vercel.app/api/profile/admin/${userId}`, {
         firstName,
         lastName,
         username,

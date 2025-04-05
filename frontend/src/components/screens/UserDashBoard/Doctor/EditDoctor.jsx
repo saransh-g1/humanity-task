@@ -27,7 +27,7 @@ function Editdoctor() {
   }, []);
 
   const getdoctorById = async () => {
-    const response = await axios.get(`http://localhost:8080/api/doctors/${id}`);
+    const response = await axios.get(`https://hmc-backend-six.vercel.app/api/doctors/${id}`);
 
     setFirstName(response.data.userId.firstName);
     setLastName(response.data.userId.lastName);
@@ -45,7 +45,7 @@ function Editdoctor() {
     try {
       // Attach Frontend with Backend Using axios method -Edit Doctor
       const response = await axios.put(
-        `http://localhost:8080/api/doctors/${id}`,
+        `https://hmc-backend-six.vercel.app/api/doctors/${id}`,
         {
           firstName,
           lastName,

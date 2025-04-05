@@ -36,7 +36,7 @@ function AddPatient() {
     };
     // Attach Frontend with Backend Using axios method -Add Patient
     try {
-      const response = await fetch("http://localhost:8080/api/patients", {
+      const response = await fetch("https://hmc-backend-six.vercel.app/api/patients", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

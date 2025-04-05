@@ -23,7 +23,7 @@ function DoctorProfile() {
     let doctorUserId = currentUser.userId;
 
     const response = await axios.get(
-      `http://localhost:8080/api/profile/doctor/` + doctorUserId
+      `https://hmc-backend-six.vercel.app/api/profile/doctor/` + doctorUserId
     );
     console.log(response.data._id);
     setDoctorId(response.data._id);
@@ -43,7 +43,7 @@ function DoctorProfile() {
 
     try {
       await axios.patch(
-        `http://localhost:8080/api/profile/doctor/${doctorId}`,
+        `https://hmc-backend-six.vercel.app/api/profile/doctor/${doctorId}`,
         {
           firstName,
           lastName,

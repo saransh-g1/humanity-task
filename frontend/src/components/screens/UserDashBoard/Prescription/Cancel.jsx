@@ -9,7 +9,7 @@ const Cancel = () => {
   useEffect(() => {
     async function fetchSession() {
       const products = await fetch(
-        "http://localhost:8080/api/paypal/cancel" + queryLocation
+        "https://hmc-backend-six.vercel.app/api/paypal/cancel" + queryLocation
       ).then((res) => res.json());
       setSession(products);
     }

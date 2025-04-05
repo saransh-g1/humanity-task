@@ -122,7 +122,7 @@ Open your web browser and navigate to http://localhost:3000 to access the MERN s
 
 ## Additional Information
 
-- The backend API routes are available at http://localhost:8080/api/.
+- The backend API routes are available at https://hmc-backend-six.vercel.app/api/.
 - Make sure MongoDB is running before starting the backend server.
 - You can customize the application by modifying the code in the `frontend` and `backend` directories.
 

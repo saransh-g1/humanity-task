@@ -20,7 +20,7 @@ function PrescriptionForm(props) {
   // },[medicines])
 
   const getMedicines = async () => {
-    const response = await axios.get("http://localhost:8080/api/medicines");
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/medicines");
     console.log("medicines", medicines);
     setMedicines(response.data);
   };

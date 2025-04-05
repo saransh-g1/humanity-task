@@ -20,7 +20,7 @@ function Editmedicine() {
 
   const getmedicineById = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/medicines/${id}`
+      `https://hmc-backend-six.vercel.app/api/medicines/${id}`
     );
     console.log(response);
     setCompany(response.data.company);
@@ -34,7 +34,7 @@ function Editmedicine() {
     // Update Medicine using Axios Method
 
     const response = await axios.put(
-      `http://localhost:8080/api/medicines/${id}`,
+      `https://hmc-backend-six.vercel.app/api/medicines/${id}`,
       {
         company,
         name,

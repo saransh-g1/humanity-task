@@ -17,7 +17,7 @@ export default function AdminDashboard() {
 
   const getUserCountByRole = async (userType) => {
     const response = await axios.post(
-      `http://localhost:8080/api/count/users`,
+      `https://hmc-backend-six.vercel.app/api/count/users`,
       {
         userType: userType,
       },
@@ -36,7 +36,7 @@ export default function AdminDashboard() {
 
   const getBookedSlots = async () => {
     let response = await axios.post(
-      `http://localhost:8080/appointments`,
+      `https://hmc-backend-six.vercel.app/appointments`,
       {
         isTimeSlotAvailable: false,
         appDate: moment(new Date()).format("YYYY-MM-DD"),
@@ -56,7 +56,7 @@ export default function AdminDashboard() {
   };
 
   const getdoctors = async () => {
-    const response = await axios.get("http://localhost:8080/api/doctors");
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/doctors");
     setdoctor(response.data);
   };
 

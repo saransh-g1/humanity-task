@@ -16,7 +16,7 @@ export default function DoctorDashboard() {
 
   const getAppointmentCount = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/count/appointments`,
+      `https://hmc-backend-six.vercel.app/api/count/appointments`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -34,7 +34,7 @@ export default function DoctorDashboard() {
   const getPatientsTreatedCount = async () => {
     console.log(localStorage.getItem("token"))
     const response = await axios.get(
-      `http://localhost:8080/api/count/patients/treated`,
+      `https://hmc-backend-six.vercel.app/api/count/patients/treated`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -49,7 +49,7 @@ export default function DoctorDashboard() {
   const getBookedSlots = async () => {
     // console.log(moment(new Date()).format('YYYY-MM-DD'))
     let response = await axios.post(
-      `http://localhost:8080/api/appointments`,
+      `https://hmc-backend-six.vercel.app/api/appointments`,
       {
         isTimeSlotAvailable: false,
         appDate: moment(new Date()).format("YYYY-MM-DD"),
@@ -75,7 +75,7 @@ export default function DoctorDashboard() {
   const getPrescription = async () => {
     try{
     let response = await axios.post(
-      `http://localhost:8080/api/prescriptions`,
+      `https://hmc-backend-six.vercel.app/api/prescriptions`,
       {},
       {
         headers: {

@@ -22,7 +22,7 @@ function EditUser() {
   }, []);
 
   const getUserById = async () => {
-    const response = await axios.get(`http://localhost:8080/api/users/${id}`, {
+    const response = await axios.get(`https://hmc-backend-six.vercel.app/api/users/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -40,7 +40,7 @@ function EditUser() {
     try {
       // Update User using Axios
       await axios.put(
-        `http://localhost:8080/api/users/${id}`,
+        `https://hmc-backend-six.vercel.app/api/users/${id}`,
         {
           firstName,
           lastName,

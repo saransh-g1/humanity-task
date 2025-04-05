@@ -28,7 +28,7 @@ function EditPatient() {
   // Get Patient by ID using Axios Method
   const getPatientById = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/patients/${id}`
+      `https://hmc-backend-six.vercel.app/api/patients/${id}`
     );
     setFirstName(response.data.userId.firstName);
     setLastName(response.data.userId.lastName);
@@ -47,7 +47,7 @@ function EditPatient() {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/patients/${id}`,
+        `https://hmc-backend-six.vercel.app/api/patients/${id}`,
         {
           firstName,
           lastName,

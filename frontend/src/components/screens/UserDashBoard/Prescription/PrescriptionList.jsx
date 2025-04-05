@@ -17,12 +17,12 @@ function PrescriptionList() {
   const [doctorSelected, setDoctorSelected] = useState("");
 
   const getPatients = async () => {
-    const response = await axios.get("http://localhost:8080/api/patients");
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/patients");
     setPatientList(response.data);
   };
 
   const getDoctors = async () => {
-    const response = await axios.get("http://localhost:8080/api/doctors");
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/doctors");
     setDoctorList(response.data);
   };
 
@@ -46,7 +46,7 @@ function PrescriptionList() {
     };
 
     let response = await axios.post(
-      `http://localhost:8080/api/prescriptions`,
+      `https://hmc-backend-six.vercel.app/api/prescriptions`,
       reqObj,
       {
         headers: {

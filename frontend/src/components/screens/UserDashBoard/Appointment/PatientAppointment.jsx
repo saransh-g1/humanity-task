@@ -71,7 +71,7 @@ function PatientAppointment() {
     // console.log("reqObj",reqObj);
 
     let response = await axios.put(
-      `http://localhost:8080/api/appointments/`,
+      `https://hmc-backend-six.vercel.app/api/appointments/`,
       reqObj,
       {
         headers: {
@@ -113,7 +113,7 @@ function PatientAppointment() {
     // setAvailableSlots(newSlotList);
     if (doctorSelected) {
       let response = await axios.post(
-        `http://localhost:8080/api/appointments`,
+        `https://hmc-backend-six.vercel.app/api/appointments`,
         {
           isTimeSlotAvailable: true,
           appDate: formatDateForDateInput(date),
@@ -153,7 +153,7 @@ function PatientAppointment() {
     // setAvailableSlots(newSlotList);
     if (doctorSelected) {
       let response = await axios.post(
-        `http://localhost:8080/api/appointments`,
+        `https://hmc-backend-six.vercel.app/api/appointments`,
         {
           isTimeSlotAvailable: false,
           appDate: formatDateForDateInput(date),
@@ -199,7 +199,7 @@ function PatientAppointment() {
   const deleteBookedSlots = async (appId) => {
     console.log("delete slot with id", appId);
     let response = await axios.delete(
-      `http://localhost:8080/api/appointments/`,
+      `https://hmc-backend-six.vercel.app/api/appointments/`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -218,7 +218,7 @@ function PatientAppointment() {
   };
 
   const getDoctorList = async () => {
-    let response = await axios.get(`http://localhost:8080/api/doctors`, {
+    let response = await axios.get(`https://hmc-backend-six.vercel.app/api/doctors`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -247,7 +247,7 @@ function PatientAppointment() {
   };
 
   const getDepartmentList = async () => {
-    let response = await axios.get(`http://localhost:8080/api/departments`, {
+    let response = await axios.get(`https://hmc-backend-six.vercel.app/api/departments`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -261,7 +261,7 @@ function PatientAppointment() {
   };
 
   const getPatients = async () => {
-    const response = await axios.get("http://localhost:8080/api/patients");
+    const response = await axios.get("https://hmc-backend-six.vercel.app/api/patients");
     setPatientList(response.data);
   };
 

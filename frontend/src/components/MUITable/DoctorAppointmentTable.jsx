@@ -106,7 +106,7 @@ export default function DoctorAppointmentTable({
 
     console.log(reqObj);
     let response = await axios.post(
-      `http://localhost:8080/api/prescription/`,
+      `https://hmc-backend-six.vercel.app/api/prescription/`,
       reqObj,
       {
         headers: {
@@ -140,7 +140,7 @@ export default function DoctorAppointmentTable({
 
   const setFormProperties = async (appID) => {
     const response = await axios.get(
-      `http://localhost:8080/api/appointments/${appID}`,
+      `https://hmc-backend-six.vercel.app/api/appointments/${appID}`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,

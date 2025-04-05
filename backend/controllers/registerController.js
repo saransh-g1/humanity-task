@@ -73,8 +73,8 @@ const sendVerificationEmail = async (email, token) => {
     from: process.env.GMAIL_USER,
     to: email,
     subject: "Verify your email address",
-    text: `Please click the following link to verify your email address: http://localhost:8080//api/verify/${token}`,
-    html: `<p>Please click this link to verify your account:</p> <a href="http://localhost:8080/api/verify/${token}">Verify</a>`,
+    text: `Please click the following link to verify your email address: https://hmc-backend-six.vercel.app//api/verify/${token}`,
+    html: `<p>Please click this link to verify your account:</p> <a href="https://hmc-backend-six.vercel.app/api/verify/${token}">Verify</a>`,
   };
 
   return await transporter.sendMail(mailOptions, (error, info) => {
@@ -97,7 +97,7 @@ const signUp = async (req, res) => {
     try {
       const userDetails = await User.create({
         email: newUser.email,
-        username: newUser.email,
+        username: newUser.username,
         firstName: newUser.firstName,
         lastName: newUser.lastName,
         password: newUser.password,

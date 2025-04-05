@@ -35,7 +35,7 @@ function Register() {
 
     // Attach Frontend With Backend Fetching Data using axios
     const response = await axios.post(
-      "http://localhost:8080/api/register",
+      "https://hmc-backend-six.vercel.app/api/register",
       user
     );
     if (response.status === 200) {
