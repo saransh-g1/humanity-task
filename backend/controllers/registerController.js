@@ -14,14 +14,10 @@ const isUserValid = (newUser) => {
 
   if (!newUser.firstName) {
     errorList.push("Please enter first name");
-  } else if (!nameRegex.test(newUser.firstName)) {
-    errorList.push("First name is invalid");
-  }
+  } 
   if (!newUser.lastName) {
     errorList.push("Please enter last name");
-  } else if (!nameRegex.test(newUser.lastName)) {
-    errorList.push("Last name is invalid");
-  }
+  } 
 
   if (!newUser.email) {
     errorList.push("Please enter email");
