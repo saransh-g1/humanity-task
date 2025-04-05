@@ -118,7 +118,7 @@ const signUp = async (req, res) => {
 
         await sendVerificationEmail(userDetails.email, verificationToken.token);
 
-        res.json({ message: "success" });
+       return res.json({ message: "success" });
       } else if (newUser.userType === "Patient") {
         const patientDetails = await Patient.create({
           userId: userDetails._id,
@@ -130,8 +130,10 @@ const signUp = async (req, res) => {
 
         await sendVerificationEmail(userDetails.email, verificationToken.token);
 
-        res.json({ message: "success" });
+        return res.json({ message: "success" });
       }
+
+        return res.json({ message: "success" });
     } catch (error) {
       res.json({ message: "error", errors: [error.message] });
     }
