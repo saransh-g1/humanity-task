@@ -24,13 +24,13 @@ async function userAuth(req, res, next) {
         break;
       case "Doctor":
         const doctor = await Doctor.findOne({
-          userId: mongoose.Types.ObjectId(req.sender.id),
+          userId: new mongoose.Types.ObjectId(req.sender.id),
         });
         req.sender.doctorId = doctor._id;
         break;
       case "Patient":
         const patient = await Patient.findOne({
-          userId: mongoose.Types.ObjectId(req.sender.id),
+          userId: new mongoose.Types.ObjectId(req.sender.id),
         });
         req.sender.patientId = patient._id;
         break;

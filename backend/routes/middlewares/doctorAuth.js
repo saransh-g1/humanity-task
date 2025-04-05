@@ -6,7 +6,6 @@ async function doctorAuth(req, res, next) {
   try {
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
-
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
     }
@@ -16,14 +15,20 @@ async function doctorAuth(req, res, next) {
     if (payload.userType !== "Doctor") {
       return res.status(401).json({ message: "Unauthorized" });
     }
-
+    console.log("got here",payload.id)
     const doctor = await Doctor.findOne({
-      userId: mongoose.Types.ObjectId(payload.id),
+      userId:new mongoose.Types.ObjectId(payload.id),
     });
+
+    console.log(doctor)
+    console.log("got here 2")
 
     if (!doctor) {
       return res.status(401).json({ message: "Unauthorized" });
     }
+
+    console.log("got here")
+
 
     req.sender = {
       id: payload.id,
@@ -33,6 +38,7 @@ async function doctorAuth(req, res, next) {
 
     next();
   } catch (error) {
+    console.log(error)
     return res.status(401).json({ message: "Unauthorized" });
   }
 }

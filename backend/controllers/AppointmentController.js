@@ -26,7 +26,7 @@ const getAppointments = async (req, res) => {
         appointments = await Appointment.find({
           isTimeSlotAvailable: isTimeSlotAvailable,
           appointmentDate: appointmentDate,
-          doctorId: mongoose.Types.ObjectId(docID),
+          doctorId: new mongoose.Types.ObjectId(docID),
         });
       } else if (req.sender.userType == "Doctor") {
         appointments = await Appointment.find({
@@ -56,7 +56,7 @@ const getAppointments = async (req, res) => {
           completed: false,
         };
         if (docID) {
-          query.doctorId = mongoose.Types.ObjectId(docID);
+          query.doctorId = new mongoose.Types.ObjectId(docID);
         }
         // appointments = await Appointment.find(query).lean();
         appointments = await Appointment.find(query)
@@ -80,7 +80,7 @@ const getAppointments = async (req, res) => {
           patientId: req.sender.patientId,
         };
         if (docID) {
-          query.doctorId = mongoose.Types.ObjectId(docID);
+          query.doctorId = new mongoose.Types.ObjectId(docID);
         }
         if (appointmentDate) {
           query.appointmentDate = appointmentDate;
@@ -164,11 +164,11 @@ const bookAppointment = async (req, res) => {
         isTimeSlotAvailable: true,
         appointmentDate: req.body.appDate,
         appointmentTime: req.body.appTime,
-        doctorId: mongoose.Types.ObjectId(req.body.doctorId),
+        doctorId: new mongoose.Types.ObjectId(req.body.doctorId),
       },
       {
         isTimeSlotAvailable: false,
-        patientId: mongoose.Types.ObjectId(req.body.patientId),
+        patientId: new mongoose.Types.ObjectId(req.body.patientId),
       }
     );
     // console.log("appointment",appointment);
@@ -216,8 +216,8 @@ const updateAppointmentById = async (req, res) => {
       isTimeSlotAvailable: false,
       appointmentDate: req.body.appDate,
       appointmentTime: req.body.appTime,
-      doctorId: mongoose.Types.ObjectId(req.body.doctorId),
-      patientId: mongoose.Types.ObjectId(req.body.patientId),
+      doctorId: new mongoose.Types.ObjectId(req.body.doctorId),
+      patientId: new mongoose.Types.ObjectId(req.body.patientId),
     });
     if (appointment) {
       const openSlot = await Appointment.findOneAndDelete({

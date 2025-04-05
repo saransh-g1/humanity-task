@@ -32,6 +32,7 @@ export default function DoctorDashboard() {
   };
 
   const getPatientsTreatedCount = async () => {
+    console.log(localStorage.getItem("token"))
     const response = await axios.get(
       `http://localhost:8080/api/count/patients/treated`,
       {
@@ -72,6 +73,7 @@ export default function DoctorDashboard() {
     // }
   };
   const getPrescription = async () => {
+    try{
     let response = await axios.post(
       `http://localhost:8080/api/prescriptions`,
       {},
@@ -101,6 +103,9 @@ export default function DoctorDashboard() {
       setPrescription(newResp);
     } else {
     }
+  }catch(e){
+    console.log(e)
+  }
   };
 
   useEffect(() => {
